@@ -3,31 +3,56 @@ print("G'day, welcome to Aussie Adventure!")
 name = input("What's your name? ")
 age = int(input("How old are you " + name + "? "))
 
-health = 10
+def introScene():
+    directions = ["left", "right"]
+    print("You are stood in your gumboots on a dusty road. It's getting hot so you'd better move - which way do you go?")
+    playerinput = ""
+    while playerinput not in directions:
+        print("Options: left/right")
+        playerinput = input()
+        if playerinput == "left":
+            houseScene()
+        elif playerinput == "right":
+            bushScene()
+        else:
+            print("Please enter a valid direction.")
+
+def houseScene():
+    directions = ["left", "right"]
+    print("You see a house at the side of the road as you walk. You are tired - what do you do? Enter the house, or continue?")
+    playerinput = ""
+    while playerinput not in directions:
+        print("Options: enter/continue")
+        playerinput = input()
+        if playerinput == "enter":
+            hallScene()
+        elif playerinput == "continue":
+            operahouseScene()
+        else:
+            print("Please enter a valid choice.")
+
+def operahouseScene():
+    directions = ["left", "right"]
+    print("You see a house at the side of the road as you walk. You are tired - what do you do? Enter the house, or continue?")
+    playerinput = ""
+    while playerinput not in directions:
+        print("Options: harbour/enter")
+        playerinput = input()
+        if playerinput == "enter":
+            fostersScene()
+        elif playerinput == "harbour":
+            print("Oh crikey, you fell in the harbour! You lose!")
+        else:
+            print("Please enter a valid choice.")
 
 if age >= 18:
     print("Bonza, you are old enough to play!")
 
     wants_to_play = input("Do you want to play? ").lower()
     if wants_to_play == "yes":
-        print("Right on, lets play! You are starting at", health, "health.")
+        print("Right on, lets play!")
 
-        direction = input("Which way would you like to go, right or left? (right/left) ").lower()
-        if direction == "left":
-            ans = input("You head along the road toward the city and see a house to your left. Do you go in, or continue past (enter/pass)? ").lower()
-
-            if ans == "enter"
-                print("Bad move! The house has a Huntsman the other side of the door. The fright lost you 5 health.")
-                health -= 5
-
-            else:
-                ans = input("Nice! You see Sydney Opera house to your right, and the harbour to your left, where do you go? (left/right? "))
-
-                if ans == "left"
-                    print("You fell in the harbour and lost 5 health.")
-
-        else:
-            print("Dang, you went into the bush and got bitten by a deadly snake. You lost...")
+        introScene()
 
     else:
         print("Goodbye then", name + "!")
